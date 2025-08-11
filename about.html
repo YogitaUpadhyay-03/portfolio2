@@ -17,6 +17,7 @@
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <button id="theme-toggle">🌙</button>
             </nav>
         </div>
     </header>
@@ -46,5 +47,29 @@
             </p>
         </div>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const themeToggle = document.getElementById("theme-toggle");
+            const savedTheme = localStorage.getItem("theme");
+
+            if (savedTheme === "dark") {
+                document.body.classList.add("dark");
+                themeToggle.textContent = "☀️";
+            }
+
+            themeToggle.addEventListener("click", () => {
+                document.body.classList.toggle("dark");
+
+                if (document.body.classList.contains("dark")) {
+                    localStorage.setItem("theme", "dark");
+                    themeToggle.textContent = "☀️";
+                } else {
+                    localStorage.setItem("theme", "light");
+                    themeToggle.textContent = "🌙";
+                }
+            });
+        });
+    </script>
 </body>
 </html>
