@@ -122,16 +122,44 @@ footer {
     background-color: #0c1c3c;
 }
 
+.dark nav a {
+    color: #ddd;
+}
+
+.dark nav button {
+    color: #ddd;
+}
+
 .dark .hero {
     background-color: #162844;
 }
 
-.dark .project,
+.dark section {
+    background-color: #121d2f;
+    color: #eee;
+}
+
+.dark .project {
+    background-color: #1f2d4a;
+    color: #fff;
+    border: 1px solid #3a4b6b;
+    border-left: 5px solid #3a4b6b;
+}
+
 .dark form input,
 .dark form textarea {
     background-color: #1f2d4a;
     color: white;
     border: 1px solid #3a4b6b;
+}
+
+.dark .resume-btn {
+    background-color: #3a4b6b;
+    color: white;
+}
+
+.dark footer {
+    background-color: #0c1c3c;
 }
 
 /* Responsive Design */
