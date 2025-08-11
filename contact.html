@@ -4,57 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            padding: 20px;
-        }
-        .container {
-            max-width: 500px;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" href="contact.css">
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1>Yogita Upadhyay</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Dark mode toggle button -->
+            <button id="theme-toggle">🌙</button>
+        </div>
+    </header>
 
-<div class="container">
-    <h2>Contact Me</h2>
-    <form action="https://formsubmit.co/yugvipin.2011@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        
-        <!-- Redirect link updated -->
-        <input type="hidden" name="_next" value="https://yogitaupadhyay-03.github.io/portfolio2/thankyou.html">
-        <input type="hidden" name="_captcha" value="false">
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2>Contact Me</h2>
+            <form action="https://formsubmit.co/yugvipin.2011@gmail.com" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
 
-        <button type="submit">Send Message</button>
-    </form>
-</div>
+                <!-- Redirect link -->
+                <input type="hidden" name="_next" value="https://yogitaupadhyay-03.github.io/portfolio2/thankyou.html">
+                <input type="hidden" name="_captcha" value="false">
 
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Yogita Upadhyay. All rights reserved.</p>
+    </footer>
+
+    <!-- Dark Mode Script -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark');
+            toggleBtn.textContent = '☀️';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            if (body.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                toggleBtn.textContent = '☀️';
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleBtn.textContent = '🌙';
+            }
+        });
+    </script>
 </body>
 </html>
